@@ -1,0 +1,73 @@
+<html>
+<head>
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button2 {background-color: #008CBA;} /* Blue */
+
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+    </style>
+        <title>Cinema - View All</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+
+<body style="background-color:powderblue;">
+
+
+<div style="width:128px; margin_left:170px;">
+    <h1>Cinema</h1>
+
+    <button onclick="window.location.assign('/cinema/add')"; class="button button2"=>Add Cinema</button>
+
+
+<table border="1">
+
+    <th style="color: ghostwhite; background-color:black;">CINEMA_ID</th>
+    <th style="color: ghostwhite; background-color:black;">STREET</th>
+    <th style="color: ghostwhite; background-color:black;">CITY</th>
+    <th style="color: ghostwhite; background-color:black;">STATE</th>
+    <th style="color: ghostwhite; background-color:black;">ZIP</th>
+    <th style="color: ghostwhite; background-color:black;">NAME</th>
+    <% for(var i=0; cinema.length > i; i++) { %>
+    <tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= cinema[i].CINEMA_ID %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= cinema[i].CINEMA_STREET %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= cinema[i].CINEMA_CITY %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= cinema[i].CINEMA_STATE %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= cinema[i].CINEMA_ZIP %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= cinema[i].CINEMA_NAME %></td>
+
+
+
+        <td>
+            <a style="color: ghostwhite; background-color:black;" href='/cinema/edit/?cinema_id=<%= cinema[i].CINEMA_ID %>'>
+                Edit
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+
+
+</body>
+</html>

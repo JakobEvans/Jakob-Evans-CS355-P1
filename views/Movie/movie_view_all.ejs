@@ -1,0 +1,60 @@
+<html>
+<head>
+    <style>
+
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button2 {background-color: #008CBA;} /* Blue */
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+    </style>
+    <title>MOVIE - View All</title>
+</head>
+<body style="background-color:powderblue;">
+<body>
+<div style="width:100px; margin_left:170px;">
+    <h1 style="color: black; "> Movies</h1>
+    <button  onclick="window.location.assign('/ticket_sales/add')"; class="button button2" href ='/cinema/add' >Add Movie</button>
+
+</div>
+<table style="color:white"; border="2">
+
+    <th style="color: ghostwhite; background-color:black;">MOVIE_ID</th>
+    <th style="color: ghostwhite; background-color:black;">MOVIE NAME</th>
+    <th style="color: ghostwhite; background-color:black;">GENRE</th>
+    <th style="color: ghostwhite; background-color:black;">DIRECTOR</th>
+    <th style="color: ghostwhite; background-color:black;">RATING</th>
+    <% for(var i=0; movie.length > i; i++) { %>
+    <tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= movie[i].MOVIE_ID %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= movie[i].MOVIE_NAME %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= movie[i].M_GENRE %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= movie[i].M_DIRECTOR %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= movie[i].RATING %></td>
+
+
+
+
+        <td>
+            <a style="color: ghostwhite; background-color:black;" href='/movie/edit/?MOVIE_ID=<%= movie[i].MOVIE_ID %>'>
+                Edit
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+
+
+</body>
+</html>

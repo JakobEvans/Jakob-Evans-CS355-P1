@@ -1,0 +1,60 @@
+<html>
+<head>
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button2 {background-color: #008CBA;} /* Blue */
+
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+
+    </style>
+
+    <title>AUDITORIUM - View All</title>
+</head>
+<body>
+<body style="background-color:powderblue;">
+
+
+<div style="width:162px; margin_left:170px;">
+    <h1 style="color: black;"> Auditorium</h1>
+</div>
+<button onclick="window.location.assign('/ticket_sales/add')"; class="button button2">Add Auditorium</button>
+
+<table border="1">
+    <th style="color: ghostwhite; background-color:black;">AUDITORIUM_ID</th>
+    <th style="color: ghostwhite; background-color:black;">CAPACITY</th>
+    <th style="color: ghostwhite; background-color:black;">CINEMA_ID</th>
+    <th style="color: ghostwhite; background-color:black;">MOVIE_ID</th>
+    <% for(var i=0; auditorium.length > i; i++) { %>
+    <tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= auditorium[i].AUDITORIUM_ID %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= auditorium[i].CAPACITY %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= auditorium[i].CINEMA_ID %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= auditorium[i].MOVIE_ID %></td>
+
+
+
+        <td>
+           <!-- <a style="color: powderblue; background-color:black;" href='/auditorium/edit/?AUDITORIUM_ID=<%= auditorium[i].AUDITORIUM_ID %>'>
+                Edit
+            </a> -->
+        </td>
+    </tr>
+    <% } %>
+</table>
+
+
+</body>
+</html>

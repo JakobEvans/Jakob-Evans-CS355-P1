@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit MOVIE</title>
+</head>
+<body style="background-color:powderblue;">
+
+<body>
+<h1>Edit MOVIE</h1>
+<form action="/movie/update" method="get">
+    <input type="hidden"
+           id="MOVIE_ID"
+           name="MOVIE_ID"
+           value="<%= movie.MOVIE_ID %>"
+    /><br/>
+    MOVIE NAME: <input
+            id="MOVIE_NAME"
+            name="MOVIE_NAME"
+            type="text"
+            value="<%= movie.MOVIE_NAME %>"
+    /><br/>
+    MOVIE GENRE: <input
+            id="M_GENRE"
+            name="M_GENRE"
+            type="text"
+            value="<%= movie.M_GENRE %>"
+    /><br/>
+    MOVIE DIRECTOR: <input
+            id="M_DIRECTOR"
+            name="M_DIRECTOR"
+            type="text"
+            value="<%= movie.M_DIRECTOR %>"
+    />
+    <br>
+    MOVIE RATING: <input
+            id="RATING"
+            name="RATING"
+            type="text"
+            value="<%= movie.RATING %>"
+    />
+
+
+    <br />
+
+
+    <br />
+
+    <input type="submit" />
+
+</form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit AUDITORIUM</title>
+</head>
+<body>
+<h1>Edit AUDITORIUM</h1>
+<form action="/auditorium/update" method="get">
+    <input type="hidden"
+           id="AUDITORIUM_ID"
+           name="AUDITORIUM_ID"
+           value="<%= auditorium.AUDITORIUM_ID %>"
+    />
+    AUDITORIUM CAPACITY: <input
+            id="CAPACITY"
+            name="CAPACITY"
+            type="text"
+            value="<%= auditorium.CAPACITY %>"
+    />
+    FK CINEMA_ID: <input
+            type="hidden"
+            id="CINEMA_ID"
+            name="CINEMA_ID"
+            value="<%= auditorium.CINEMA_ID %>"
+    />
+    FK MOVIE_ID STREET: <input
+            id="MOVIE_ID"
+            name="MOVIE_ID"
+            type="hidden"
+            value="<%= auditorium.MOVIE_ID %>"
+    />
+
+
+    <br/>
+
+
+
+    <br />
+
+
+    <br />
+
+    <input type="submit" />
+
+</form>
+</body>
+</html>

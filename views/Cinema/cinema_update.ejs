@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit CINEMA</title>
+</head>
+<body style="background-color:powderblue;">
+
+<body>
+<h1>Edit CINEMA</h1>
+<form action="/cinema/update" method="get">
+    <input type="hidden"
+           id="CINEMA_ID"
+           name="CINEMA_ID"
+           value="<%= cinema.CINEMA_ID %>"
+    /><br/>
+    CINEMA Name: <input
+            id="CINEMA_NAME"
+            name="CINEMA_NAME"
+            type="text"
+            value="<%= cinema.CINEMA_NAME %>"
+    /><br/>
+    CINEMA CITY: <input
+            id="CINEMA_CITY"
+            name="CINEMA_CITY"
+            type="text"
+            value="<%= cinema.CINEMA_CITY %>"
+    /><br/>
+    CINEMA STREET: <input
+            id="CINEMA_STREET"
+            name="CINEMA_STREET"
+            type="text"
+            value="<%= cinema.CINEMA_STREET %>"
+    /><br/>
+            CINEMA STATE: <input
+            id="CINEMA_STATE"
+            name="CINEMA_STATE"
+            type="text"
+            value="<%= cinema.CINEMA_STATE %>"
+    />
+    <br/>
+    CINEMA ZIP: <input
+            id="CINEMA_ZIP"
+            name="CINEMA_ZIP"
+            type="text"
+            value="<%= cinema.CINEMA_ZIP %>"
+    />
+
+
+    <br />
+
+
+    <br />
+
+    <input type="submit" />
+
+</form>
+</body>
+</html>
