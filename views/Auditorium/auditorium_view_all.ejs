@@ -30,7 +30,7 @@
 <div style="width:162px; margin_left:170px;">
     <h1 style="color: black;"> Auditorium</h1>
 </div>
-<button onclick="window.location.assign('/ticket_sales/add')"; class="button button2">Add Auditorium</button>
+<button onclick="window.location.assign('/auditorium/add')"; class="button button2">Add Auditorium</button>
 
 <table border="1">
     <th style="color: ghostwhite; background-color:black;">AUDITORIUM_ID</th>
@@ -51,9 +51,19 @@
                 Edit
             </a> -->
         </td>
+        <td>
+            &nbsp;<a style="color: ghostwhite; background-color:black;" href="/auditorium/delete?AUDITORIUM_ID=<%= auditorium[i].AUDITORIUM_ID %>">
+                Delete
+            </a>
+        </td>
     </tr>
     <% } %>
 </table>
+<% if(locals.was_successful_delete) { %>
+<div>
+    <p>Successful Auditorium delete</p>
+</div>
+<% } %>
 
 
 </body>

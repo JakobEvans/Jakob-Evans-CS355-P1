@@ -64,10 +64,19 @@
                 Edit
             </a>
         </td>
+        <td>
+            &nbsp;<a style="color: ghostwhite; background-color:black;" href="/cinema/delete?CINEMA_ID=<%= cinema[i].CINEMA_ID %>">
+                Delete
+            </a>
+        </td>
     </tr>
     <% } %>
 </table>
-
+    <% if(locals.was_successful_delete) { %>
+    <div>
+        <p>Successful Cinema delete</p>
+    </div>
+    <% } %>
 
 </body>
 </html>
