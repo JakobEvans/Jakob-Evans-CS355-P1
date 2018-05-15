@@ -33,7 +33,7 @@ app.use('/cinema', cinema);
 app.use('/movie', movie);
 app.use('/auditorium', auditorium);
 app.use('/ticket_sales', ticket_sales);
-/* app.use('/queries', queries); */
+/* app.use('/queries', queries);   */
 
 
 // catch 404 and forward to error handler
