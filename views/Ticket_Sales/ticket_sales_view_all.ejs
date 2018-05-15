@@ -53,13 +53,23 @@
 
 
         <td>
-           <!-- <a style="color: white; background-color:black;" href='/ticket_sales/edit/?TICKET_NUM=<%= ticket_sales[i].TICKET_NUM %>'>
+            <a style="color: white; background-color:black;" href='/ticket_sales/edit/?TICKET_NUM=<%= ticket_sales[i].TICKET_NUM %>'>
                 Edit
-            </a> -->
+            </a>
+        </td>
+        <td>
+            &nbsp;<a style="color: ghostwhite; background-color:black;" href="/ticket_sales/delete?TICKET_NUM=<%= ticket_sales[i].TICKET_NUM %>">
+                Delete
+            </a>
         </td>
     </tr>
     <% } %>
 </table>
+<% if(locals.was_successful_delete) { %>
+<div>
+    <p>Successful Ticket delete</p>
+</div>
+<% } %>
 
 
 </body>
