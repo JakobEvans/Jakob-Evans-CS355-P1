@@ -1,11 +1,47 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+  <style>
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    .button2 {background-color: #008CBA;} /* Blue */
+
+    h1 {
+      text-shadow: 2px 2px white;
+    }
+
+  </style>
+
+  <title>Home - View All</title>
+</head>
+<body>
+<body style="background-color:powderblue;">
+<td>
+
+
+    <h1 style="color: black;"> Movie Theater Database</h1>
+  </div>
+<td>
+  <button onclick="window.location.assign('/cinema/all')"; class="button button2">Cinema</button>
+</td>
+
+<button onclick="window.location.assign('/movie/all')"; class="button button2">Movie</button>
+</td>
+<button onclick="window.location.assign('/auditorium/all')"; class="button button2">Auditorium</button>
+</td>
+<button onclick="window.location.assign('/ticket_sales/all')"; class="button button2">Ticket Sale</button>
+
+<h1 style="color: black;"> Queries</h1>
+</td>
+<button onclick="window.location.assign('/query/query1')"; class="button button2">Query 1</button>
+</body>
 </html>

@@ -11,6 +11,7 @@ var cinema = require('./routes/cinema');
 var movie = require('./routes/movie');
 var auditorium = require('./routes/auditorium');
 var ticket_sales = require('./routes/ticket_sales');
+var queries = require('./routes/queries');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use('/cinema', cinema);
 app.use('/movie', movie);
 app.use('/auditorium', auditorium);
 app.use('/ticket_sales', ticket_sales);
+app.use('/queries', queries);
 
 
 // catch 404 and forward to error handler
