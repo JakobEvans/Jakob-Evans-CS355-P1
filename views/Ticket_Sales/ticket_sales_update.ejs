@@ -4,37 +4,50 @@
     <title>Edit Ticket Sales</title>
 </head>
 <body>
+<body style="background-color:powderblue;">
 <h1>Edit Ticket Sales</h1>
 <form action="/ticket_sales/update" method="get">
+
     <input type="hidden"
            id="TICKET_NUM"
            name="TICKET_NUM"
-           value="<%= ticket_sales.TICKET_NUM %>"
-    />
-    Ticket PRICE: <input
-            id="PRICE"
-            name="PRICE"
-            type="text"
-            value="<%= ticket_sales.PRICE %>"
-    />
-    FK MOVIE: <input
-            id="MOVIE_ID"
-            name="MOVIE_ID"
-            type="hidden"
-            value="<%= ticket_sales.MOVIE_ID %>"
-    />
-    Ticket STREET: <input
-            id="CINEMA_ID"
-            name="CINEMA_ID"
-            type="hidden"
-            value="<%= ticket_sales.CINEMA_ID %>"
-    />
-    CINEMA STATE: <input
-            id="AUDITORIUM_ID"
-            name="AUDITORIUM_ID"
-            type="hidden"
-            value="<%= ticket_sales.AUDITORIUM_ID %>"
-    />
+           value="<%= ticket_sales.TICKET_NUM %>">
+           <br>
+
+
+
+    Ticket Sales Price: <input name ="PRICE" type="text" /><br/>
+    <br/>
+
+
+    <th style="color: powderblue; background-color:black;">Movie Name:</th>
+<br>
+    <select id="MOVIE_ID" name="MOVIE_ID">
+        <%for(var i = 0; movie.length > i; i++) { %>
+        <option value="<%= movie[i].MOVIE_ID %>"> <%= movie[i].MOVIE_NAME %> </option>
+        <% } %>
+    </select>
+    <br/>
+
+<br>
+    <th style="color: powderblue; background-color:black;">Cinema Name:</th>
+<br>
+    <select id="CINEMA_ID" name="CINEMA_ID">
+        <%for(var i = 0; cinema.length > i; i++) { %>
+        <option value="<%= cinema[i].CINEMA_ID %>"> <%= cinema[i].CINEMA_NAME %> </option>
+        <% } %>
+    </select>
+    <br>
+    <br/>
+
+
+    <th style="color: powderblue; background-color:black;">Auditorium Num:</th>
+<br>
+    <select id="AUDITORIUM_ID" name="AUDITORIUM_ID">
+        <%for(var i = 0; auditorium.length > i; i++) { %>
+        <option value="<%= auditorium[i].AUDITORIUM_ID %>"> <%= auditorium[i].AUDITORIUM_ID %> </option>
+        <% } %>
+    </select>
 
 
 

@@ -5,19 +5,32 @@
         h1 {
             text-shadow: 2px 2px white;
         }
+        center {
+            margin: auto;
+            width: 50%;
+            border: 3px solid black;
+            padding: 10px;
+        }
+        h2 {
+            font-weight: bolder;
+            font-size: large;
+        }
     </style>
     <title> Ticket Sales - Add</title>
 </head>
 <body style="background-color:powderblue;">
 
 <body>
+<center
 <div style="width:140px; margin_left:170px;">
-    <h1 style="color: black;"> Add New Ticket Sale</h1>
+    <h2 style="color: black;"> Add New Ticket Sale</h2>
 </div>
 
 <form action="/ticket_sales/insert" method="get">
     Ticket Sales PRICE: <input name ="PRICE" type="text" /><br/>
     <br/>
+
+
     <th style="color: powderblue; background-color:black;">Movie:</th>
 
     <select id="MOVIE_ID" name="MOVIE_ID">
@@ -26,6 +39,9 @@
         <% } %>
     </select>
     <br/>
+    <br>
+
+
     <th style="color: powderblue; background-color:black;">Cinema:</th>
 
     <select id="CINEMA_ID" name="CINEMA_ID">
@@ -34,7 +50,10 @@
         <% } %>
     </select>
     <br/>
-    <th style="color: powderblue; background-color:black;">Auditorium Num:</th>
+
+<br>
+
+    <th style="color: powderblue; background-color:black;">Auditorium Number:</th>
 
     <select id="AUDITORIUM_ID" name="AUDITORIUM_ID">
         <%for(var i = 0; auditorium.length > i; i++) { %>
@@ -43,7 +62,7 @@
     </select>
     <br/>
 
-
+<br>
 
 
 
@@ -52,6 +71,7 @@
     <input type="submit" />
 
 </form>
+</center>
 </body>
 </html>
 

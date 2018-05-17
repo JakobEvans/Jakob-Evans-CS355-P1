@@ -55,4 +55,17 @@ router.get('/update', function(req, res) {
     });
 });
 
+router.get('/delete', function(req, res) {
+    cinema_dal.delete(req.query, function (err, result) {
+        if (err) {
+           /* console.log(err);*/
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/cinema/all' + "?&was_successful_delete=1");
+        }
+
+    });
+});
+
 module.exports = router;

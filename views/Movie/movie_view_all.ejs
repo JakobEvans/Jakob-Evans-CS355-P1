@@ -18,6 +18,8 @@
         h1 {
             text-shadow: 2px 2px white;
         }
+
+
     </style>
     <title>MOVIE - View All</title>
 </head>
@@ -59,6 +61,11 @@
     </tr>
     <% } %>
 </table>
+<% if(locals.was_successful_delete) { %>
+<div>
+    <p>Successful Movie delete</p>
+</div>
+<% } %>
 
 
 </body>

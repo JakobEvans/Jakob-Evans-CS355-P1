@@ -56,13 +56,19 @@ router.get('/insert', function(req, res) {
 });
 
 router.get('/edit', function(req, res){
-    auditorium_dal.getinfo(req.query.AUDITORIUM_ID, function(err, result) {
-        if(err) { res.send(err);}
-        else {
-            res.render('auditorium/auditorium_update',
-                {auditorium: result[0][0]}
-            );
-        }
+    cinema_dal.getinfo(req.query.CINEMA_ID, function(err, cinema) {
+        movie_dal.getinfo(req.query.MOVIE_ID, function (err, movie) {
+            auditorium_dal.getinfo(req.query.AUDITORIUM_ID, function (err, result) {
+                if (err) {
+                    res.send(err);
+                }
+                else {
+                    res.render('auditorium/auditorium_update',
+                        {auditorium: result[0][0], movie: movie, cinema: cinema}
+                    );
+                }
+            });
+        });
     });
 });
 
@@ -74,6 +80,19 @@ router.get('/update', function(req, res) {
         else{
             res.redirect(302, '/auditorium/all');
         }
+    });
+});
+
+router.get('/delete', function(req, res) {
+    auditorium_dal.delete(req.query, function (err, result) {
+        if (err) {
+            /* console.log(err);*/
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/auditorium/all' + "?&was_successful_delete=1");
+        }
+
     });
 });
 

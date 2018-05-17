@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-var db = require('./db_connection.js')
+var db = require('./db_connection.js');
 /* DATA BASE CONFIGURATION */
 var connection = mysql.createConnection(db.config);
 
@@ -24,15 +24,24 @@ exports.update = function(params, callback) {
 
 
 exports.getinfo = function(TICKET_NUM, callback) {
-    var query = 'CALL ticket_sales_getinfo(?)';
+    var query = 'CALL ticketsales_getinfo(?)';
     var queryData = [TICKET_NUM];
 
-    connection.query(query, queryData, function(err, result) {
+    connection.query(query, queryData, function (err, result) {
         callback(err, result);
-    });
+
+/*
+    var query1 = 'CALL movie_getinfo(?)';
+    var queryData1 = [MOVIE_ID];
+
+    connection.query1(query1, queryData1, function (err, result) {
+        callback(err, result);
+    })
+    */
+})
+
 
 };
-
 exports.insert = function(params, callback) {
     var query = 'INSERT INTO ticket_sales(TICKET_NUM, PRICE, MOVIE_ID, CINEMA_ID, AUDITORIUM_ID) VALUES (?, ?, ?, ?, ?)';
 
@@ -43,4 +52,14 @@ exports.insert = function(params, callback) {
     });
 };
 
+
+exports.delete = function(params, callback) {
+    var query = 'Delete FROM ticket_sales WHERE TICKET_NUM = ?';
+
+    var queryData = [params.TICKET_NUM];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err,result);
+    });
+};
 

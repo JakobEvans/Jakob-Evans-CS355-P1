@@ -3,13 +3,14 @@
   <style>
     .button {
       background-color: #4CAF50; /* Green */
-      border: none;
-      color: white;
+      border: solid;
+      border-color: black;
       padding: 15px 32px;
       text-align: center;
-      text-decoration: none;
+      text-color: white;
+      text-decoration: white;
       display: inline-block;
-      font-size: 16px;
+      font-size: 17px;
       margin: 4px 2px;
       cursor: pointer;
     }
@@ -19,6 +20,16 @@
       text-shadow: 2px 2px white;
     }
 
+    center {
+      margin: auto;
+      width: 50%;
+      border: 3px solid black;
+      padding: 10px;
+    }
+    h2 {
+      font-weight: bolder;
+      font-size: medium;
+    }
   </style>
 
   <title>Home - View All</title>
@@ -26,10 +37,13 @@
 <body>
 <body style="background-color:powderblue;">
 <td>
+  <center
 
 
-    <h1 style="color: black;"> Movie Theater Database</h1>
+
   </div>
+  <h1 style="color: black;"> Movie Theater Database</h1>
+  <br>
 <td>
   <button onclick="window.location.assign('/cinema/all')"; class="button button2">Cinema</button>
 </td>
@@ -41,7 +55,21 @@
 <button onclick="window.location.assign('/ticket_sales/all')"; class="button button2">Ticket Sale</button>
 
 <h1 style="color: black;"> Queries</h1>
+
+
+
+
 </td>
-<button onclick="window.location.assign('/query/query1')"; class="button button2">Query 1</button>
+<button onclick="window.location.assign('/queries/query3')"; class="button button2">Query 3</button>
+<td>
+</td>
+<button onclick="window.location.assign('/queries/query4')"; class="button button2">Query 4</button>
+<td>
+</td>
+<button onclick="window.location.assign('/queries/query7')"; class="button button2">Query 7</button>
+<td>
+  <button onclick="window.location.assign('/queries/query8')"; class="button button2">Query 8</button>
+</td>
+</center>
 </body>
 </html>

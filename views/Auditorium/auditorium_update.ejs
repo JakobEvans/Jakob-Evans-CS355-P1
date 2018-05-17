@@ -4,31 +4,32 @@
     <title>Edit AUDITORIUM</title>
 </head>
 <body>
+<body style="background-color:powderblue;">
+
 <h1>Edit AUDITORIUM</h1>
+
 <form action="/auditorium/update" method="get">
     <input type="hidden"
            id="AUDITORIUM_ID"
            name="AUDITORIUM_ID"
            value="<%= auditorium.AUDITORIUM_ID %>"
     />
-    AUDITORIUM CAPACITY: <input
-            id="CAPACITY"
-            name="CAPACITY"
-            type="text"
-            value="<%= auditorium.CAPACITY %>"
-    />
-    FK CINEMA_ID: <input
-            type="hidden"
-            id="CINEMA_ID"
-            name="CINEMA_ID"
-            value="<%= auditorium.CINEMA_ID %>"
-    />
-    FK MOVIE_ID STREET: <input
-            id="MOVIE_ID"
-            name="MOVIE_ID"
-            type="hidden"
-            value="<%= auditorium.MOVIE_ID %>"
-    />
+
+    AUDITORIUM CAPACITY: <input name ="CAPACITY" type="text" /><br/>
+<br>
+    FK CINEMA_ID: <br>
+    <select id="CINEMA_ID" name="CINEMA_ID">
+        <%for(var i = 0; cinema.length > i; i++) { %>
+        <option value="<%= cinema[i].CINEMA_ID %>"> <%= cinema[i].CINEMA_NAME %> </option>
+        <% } %>
+    </select>
+    <br>
+<br>
+    FK MOVIE_ID: <br> <select id="MOVIE_ID" name="MOVIE_ID">
+        <%for(var i = 0; movie.length > i; i++) { %>
+        <option value="<%= movie[i].MOVIE_ID %>"> <%= movie[i].MOVIE_NAME %> </option>
+        <% } %>
+    </select>
 
 
     <br/>

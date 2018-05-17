@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <style>
 
         h1 {
             text-shadow: 2px 2px white;
+        }
+        center {
+            margin: auto;
+            width: 50%;
+            border: 3px solid black;
+            padding: 10px;
+        }
+        h2 {
+            font-weight: bolder;
+            font-size: large;
         }
     </style>
     <title>Movie - Add</title>
@@ -12,6 +22,7 @@
 <body style="background-color:powderblue;">
 
 <body>
+<center
 <h1 style="color: black; ">Add New Movie</h1>
 <form action="/movie/insert" method="get">
     MOVIE NAME: <input name ="MOVIE_NAME" type="text" /><br/>
@@ -24,5 +35,6 @@
     <input type="submit" />
 
 </form>
+</center>
 </body>
 </html>

@@ -64,17 +64,99 @@ router.get('/insert', function(req, res) {
     });
 });
 
+
+router.get('/edit', function(req, res) {
+    movie_dal.getinfo(req.query.MOVIE_ID,function (err, movie) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            cinema_dal.getinfo(req.query.CINEMA_ID, function (err, cinema) {
+                if (err) {
+                    res.send(err)
+                }
+                else {
+                    auditorium_dal.getinfo(req.query.AUDITORIUM_ID, function (err, auditorium) {
+                        if (err) {
+                            res.send(err)
+                        }
+                        else {
+                            ticket_sales_dal.getinfo(req.query.TICKET_NUM, function (err, ticket_sales) {
+                                if (err) {
+                                    res.send(err)
+                                }
+                                else {
+                                    res.render('ticket_sales/ticket_sales_update', {
+                                        ticket_sales: ticket_sales[0][0],
+                                        movie: movie[0],
+                                        cinema: cinema[0],
+                                        auditorium: auditorium[0]
+                                    });
+                                }
+
+                            })
+                        }
+                    })
+
+                }
+            })
+        }
+
+    })
+
+});
+/*
+router.get('/edit', function(req, res){
+    ticket_sales_dal.getinfo(req.query.TICKET_NUM,function(err, result) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            movie_dal.getAll(function (err, movie) {
+                if (err) {
+                    res.send(err);
+                }
+                else {
+                    cinema_dal.getAll( function (err, cinema) {
+                        if (err) {
+                            res.send(err)
+                        }
+                        else {
+                            auditorium_dal.getinfo(req.query.AUDITORIUM_ID, function (err, auditorium) {
+                                if (err) {
+                                    res.send(err)
+                                }
+                                else {
+                                    res.render('ticket_sales/ticket_sales_update',
+                                        {
+                                            ticket_sales: ticket_sales[0][0],
+                                            movie: movie[0],
+                                            cinema: cinema[0],
+                                            auditorium: auditorium[0]
+                                        });
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+        }
+    })
+});
+
+*/
+/*
 router.get('/edit', function(req, res){
     ticket_sales_dal.getinfo(req.query.TICKET_NUM, function(err, result) {
         if(err) { res.send(err);}
         else {
             res.render('ticket_sales/ticket_sales_update',
-                {ticket_sales: result[0][0]}
+                {ticket_sales: result[0][0], movie: result[0], cinema: result[0], auditorium: result[0]}
             );
         }
     });
 });
-
+*/
 router.get('/update', function(req, res) {
     ticket_sales_dal.update(req.query, function(err, result) {
         if (err) {
@@ -86,5 +168,17 @@ router.get('/update', function(req, res) {
     });
 });
 
+router.get('/delete', function(req, res) {
+    ticket_sales_dal.delete(req.query, function (err, result) {
+        if (err) {
+            /* console.log(err);*/
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/ticket_sales/all' + "?&was_successful_delete=1");
+        }
+
+    });
+});
 
 module.exports = router;

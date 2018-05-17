@@ -45,3 +45,13 @@ exports.insert = function(params, callback) {
         };
 
 
+
+exports.delete = function(params, callback) {
+    var query = 'Delete FROM cinema WHERE CINEMA_ID = ?';
+
+    var queryData = [params.CINEMA_ID];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err,result);
+    });
+};
