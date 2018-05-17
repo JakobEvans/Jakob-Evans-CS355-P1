@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Querie 7</title>
+    <style>
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: large;
+        }
+
+    </style>
+
+</head>
+<h1>Querie 7</h1> <br>
+<table style="color:black"; border="2">
+    <th style="color: ghostwhite; background-color:black;">Average_screenings</th>
+
+    <% for(var i=0; result.length > i; i++) { %>
+    <tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].Average_screenings%></td>
+
+    </tr>
+
+    <% } %>
+</table>
+<br>
+<h2>
+    A query utilizing a JOIN, GROUP BY, HAVING and an derived function (avg, min, max, etc.)
+</h2>
+<td></td>
+SELECT AVG(screenings) as Average_screenings <br>
+FROM <br>
+( <br>
+Select movie.MOVIE_NAME, count(movie.MOVIE_ID) as screenings <br>
+from movie <br>
+LEFT JOIN movie_auditorium on movie.MOVIE_ID = movie_auditorium.MOVIE_ID<br>
+GROUP BY movie.MOVIE_ID<br>
+having count(movie.MOVIE_ID)) as done;<br>
+</p>
+
+<h2>Description:
+</h2>
+<p>
+    This query will return the average amount of screenings for all movies.<br>
+    *A screening is when a movie is playing at an auditorium*
+
+
+
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Querie 4</title>
+    <style>
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: large;
+        }
+    </style>
+
+</head>
+<h1>Querie 4</h1> <br>
+<table style="color:black"; border="2">
+    <th style="color: ghostwhite; background-color:black;">MOVIE_NAME</th>
+
+    <% for(var i=0; result.length > i; i++) { %>
+    <tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_NAME%></td>
+
+    </tr>
+
+    <% } %>
+</table>
+<br>
+<h2>
+    A query using a subquery with EXISTS or NOT EXISTS:
+</h2>
+    <br>
+<td></td>
+select movie.MOVIE_NAME <br>
+from movie<br>
+WHERE NOT EXISTS<br>
+(SELECT MOVIE_ID from movie_auditorium<br>
+WHERE movie.MOVIE_ID = movie_auditorium.MOVIE_ID);
+</p>
+<br>
+<h2>Description:
+</h2>
+<p>
+    This query will return movies that ARE NOT playing in any auditoriums.
+
+
+
+
+</html>

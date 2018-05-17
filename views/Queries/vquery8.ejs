@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Querie 8</title>
+    <style>
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+<h1>Querie 8</h1> <br>
+<table style="color:black"; border="2">
+<th style="color: ghostwhite; background-color:black;">MOVIE_ID</th>
+<th style="color: ghostwhite; background-color:black;">MOVIE NAME</th>
+<th style="color: ghostwhite; background-color:black;">GENRE</th>
+<th style="color: ghostwhite; background-color:black;">DIRECTOR</th>
+<th style="color: ghostwhite; background-color:black;">RATING</th>
+<% for(var i=0; result.length > i; i++) { %>
+<tr>
+    <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_ID %></td>
+    <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_NAME %></td>
+    <td style="color: ghostwhite; background-color:black;"> <%= result[i].M_GENRE %></td>
+    <td style="color: ghostwhite; background-color:black;"> <%= result[i].M_DIRECTOR %></td>
+    <td style="color: ghostwhite; background-color:black;"> <%= result[i].RATING %></td>
+
+</tr>
+<% } %>
+    </table>
+
+<h2>
+    SQL Statement for ORDER BY:
+</h2>
+    <td></td>
+    SELECT * FROM movie<br>ORDER BY movie.MOVIE_NAME;
+</p>
+
+        <h2>Description:
+        </h2>
+        <p>
+            This query sorts everything by alphabetically by the movie name.
+            </p>
+
+
+
+</body>
+</html>

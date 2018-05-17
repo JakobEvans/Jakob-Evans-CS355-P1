@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Querie 3</title>
+    <style>
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: large;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Querie 3</h1> <br>
+<table style="color:black"; border="2">
+    <th style="color: ghostwhite; background-color:black;">MOVIE_NAME</th>
+
+    <% for(var i=0; result.length > i; i++) { %>
+    <tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_NAME%></td>
+
+    </tr>
+
+    <% } %>
+</table>
+<br>
+<h2>
+    A query using a subquery with IN or NOT IN:
+</h2>
+
+<td></td>
+SELECT movie.MOVIE_NAME <br>
+FROM movie<br>
+WHERE MOVIE_ID IN<br>
+(SELECT MOVIE_ID FROM movie_auditorium);<br>
+</p>
+
+<h2>Description:
+</h2>
+<p>
+    This query will return movies that ARE playing in any auditoriums.
+
+
+</p>
+</body>
+</html>
