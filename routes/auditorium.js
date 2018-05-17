@@ -55,22 +55,35 @@ router.get('/insert', function(req, res) {
     });
 });
 
-router.get('/edit', function(req, res){
-    cinema_dal.getinfo(req.query.CINEMA_ID, function(err, cinema) {
-        movie_dal.getinfo(req.query.MOVIE_ID, function (err, movie) {
-            auditorium_dal.getinfo(req.query.AUDITORIUM_ID, function (err, result) {
+router.get('/edit', function(req, res) {
+    cinema_dal.getinfo(req.query.CINEMA_ID, function (err, cinema) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            movie_dal.getinfo(req.query.MOVIE_ID, function (err, movie) {
                 if (err) {
                     res.send(err);
                 }
                 else {
-                    res.render('auditorium/auditorium_update',
-                        {auditorium: result[0][0], movie: movie, cinema: cinema}
-                    );
+                    auditorium_dal.getinfo(req.query.AUDITORIUM_ID, function (err, result) {
+                        if (err) {
+                            res.send(err);
+                        }
+                        else {
+                            res.render('auditorium/auditorium_update',
+                                {cinema: cinema[0], movie: movie[0], auditorium: result[0][0]})
+                        }
+                    })
+
                 }
-            });
-        });
-    });
+
+            })
+        }
+    })
+
 });
+
 
 router.get('/update', function(req, res) {
     auditorium_dal.update(req.query, function(err, result) {

@@ -20,6 +20,16 @@
         h1 {
             text-shadow: 2px 2px white;
         }
+        h2 {
+            font-weight: bolder;
+            font-size: small;
+        }
+        center {
+            margin: auto;
+            width: 100%;
+            border: none;
+            padding: 10px;
+        }
     </style>
     <title>Ticket Sales - View All</title>
 </head>
@@ -66,6 +76,10 @@
     </tr>
     <% } %>
 </table>
+
+    <h2>USE: Track the ticket sales and which movie/auditorium that ticket is going to over multiple cinema locations</h2>
+
+
 <% if(locals.was_successful_delete) { %>
 <div>
     <p>Successful Ticket delete</p>

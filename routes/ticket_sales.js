@@ -87,22 +87,23 @@ router.get('/edit', function(req, res) {
                                 }
                                 else {
                                     res.render('ticket_sales/ticket_sales_update', {
-                                        ticket_sales: ticket_sales[0][0],
-                                        movie: movie[0],
-                                        cinema: cinema[0],
-                                        auditorium: auditorium[0]
+                                        movie: movie[1],
+                                        cinema: cinema[1],
+                                        auditorium: auditorium[1],
+                                        ticket_sales: ticket_sales[0][0]
+
                                     });
                                 }
 
-                            })
+                            });
                         }
-                    })
+                    });
 
                 }
-            })
+            });
         }
 
-    })
+    });
 
 });
 /*

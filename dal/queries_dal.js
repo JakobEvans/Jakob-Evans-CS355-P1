@@ -64,7 +64,9 @@ exports.query5 = function(callback) {
 
 
 exports.query6 = function(callback) {
-    var query = '.....my subqueries';
+    var query = 'SELECT MOVIE_ID, MOVIE_NAME, movie.M_GENRE\n' +
+        'from movie where movie.M_GENRE = \'Fantasy/Sci-fi\'\n' +
+        'GROUP BY MOVIE_NAME;';
 
     connection.query(query, function (err, result)  {
         callback(err, result);
