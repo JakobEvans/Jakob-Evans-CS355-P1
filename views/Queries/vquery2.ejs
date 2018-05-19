@@ -3,19 +3,79 @@
 <head>
     <title>Querie 2</title>
     <style>
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: large;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: dashed;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button2 {background-color: #008CBA;} /* Blue */
 
     </style>
+
 </head>
+<body>
+<body style="background-color:powderblue;">
+
+<h1>Querie 2</h1> <br>
+<button onclick="window.location.assign('/')"; class="button button2">Home Page</button>
+<h2>Compare Pricing:</h2>
+<table style="color:black"; border="2">
+    <th style="color: ghostwhite; background-color:black;">TICKET_NUM</th>
+    <th style="color: ghostwhite; background-color:black;">CURRENT_PRICE</th>
+    <th style="color: ghostwhite; background-color:black;">MOVIE_NAME</th>
+    <th style="color: ghostwhite; background-color:black;">MAX_PRICE</th>
+    <th style="color: ghostwhite; background-color:black;">MIN_PRICE</th>
 
 
+    <% for(var i=0; result.length > i; i++) { %>
+<tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].TICKET_NUM%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].PRICE%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_NAME%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].max_price%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].min_price%></td>
 
+</tr>
 
-<p>
+    <% } %>
+</table>
+<br>
+<h2>
+    A query using a subquery in a JOIN</h2>
 
-    my sql commands
+<td></td>
+Select  t.TICKET_NUM,t.PRICE, m.MOVIE_NAME,<br>
+(SELECT max(ticket_sales.price) from ticket_sales) as max_price,<br>
+(SELECT min(ticket_sales.price) from ticket_sales) as min_price <br>
+from ticket_sales t join movie m on t.MOVIE_ID = m.MOVIE_ID;<br>
+
 </p>
 
+<h2>Description:
+</h2>
+<p>
+ This query returns all tickets, the movie there going to and their prices.
+    <br> The MAX_PRICE column displays the max price, as well as the min price so you can easily compare ticket prices.
 
+    <br>
+    <br>
+    <br>
+    (Not my best query)
 
-
+</p>
+</body>
 </html>

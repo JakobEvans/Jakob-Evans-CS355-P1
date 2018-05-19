@@ -5,7 +5,9 @@ var connection = mysql.createConnection(db.config);
 
 
 exports.query1 = function(callback) {
-    var query = '.....my subqueries';
+    var query = 'SELECT MOVIE_ID, MOVIE_NAME, RATING\n' +
+        'from movie\n' +
+        'where MOVIE_ID IN (SELECT MOVIE_ID FROM ticket_sales);';
 
     connection.query(query, function (err, result)  {
         callback(err, result);
@@ -15,7 +17,10 @@ exports.query1 = function(callback) {
 };
 
 exports.query2 = function(callback) {
-    var query = '.....my subqueries';
+    var query = 'Select  t.TICKET_NUM,t.PRICE, m.MOVIE_NAME,\n' +
+        '(SELECT max(ticket_sales.price) from ticket_sales) as max_price,\n' +
+        '(SELECT min(ticket_sales.price) from ticket_sales) as min_price\n' +
+        'from ticket_sales t join movie m on t.MOVIE_ID = m.MOVIE_ID;';
 
     connection.query(query, function (err, result)  {
         callback(err, result);
@@ -53,7 +58,12 @@ exports.query4 = function(callback) {
 
 
 exports.query5 = function(callback) {
-    var query = '.....my subqueries';
+    var query = 'SELECT AUDITORIUM_ID, CAPACITY, movie.MOVIE_ID, movie.MOVIE_NAME, cinema.CINEMA_ID, cinema.CINEMA_NAME\n' +
+        'from auditorium\n' +
+        'inner join cinema on auditorium.CINEMA_ID = cinema.CINEMA_ID\n' +
+        'inner join movie on auditorium.MOVIE_ID = movie.MOVIE_ID\n' +
+        'Where CAPACITY < (Select avg(auditorium.CAPACITY) as avg from auditorium)\n' +
+        'order by AUDITORIUM_ID;';
 
     connection.query(query, function (err, result)  {
         callback(err, result);
@@ -106,7 +116,12 @@ exports.query8 = function(callback) {
 
 
 exports.query9 = function(callback) {
-    var query = '.....my subqueries';
+    var query = 'SELECT CINEMA_ID, MOVIE_ID, AUDITORIUM_ID\n' +
+        'FROM auditorium\n' +
+        'UNION (\n' +
+        'SELECT CINEMA_ID, MOVIE_ID, AUDITORIUM_ID\n' +
+        'FROM auditorium)\n' +
+        'order by CINEMA_ID;';
 
     connection.query(query, function (err, result)  {
         callback(err, result);
@@ -117,7 +132,9 @@ exports.query9 = function(callback) {
 
 
 exports.query10 = function(callback) {
-    var query = '.....my subqueries';
+    var query = 'SELECT DISTINCT MOVIE_ID, AUDITORIUM_ID\n' +
+        'FROM movie_auditorium\n' +
+        'ORDER BY movie_id;';
 
     connection.query(query, function (err, result)  {
         callback(err, result);

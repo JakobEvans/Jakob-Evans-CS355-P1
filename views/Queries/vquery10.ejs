@@ -3,19 +3,68 @@
 <head>
     <title>Querie 10</title>
     <style>
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: medium;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: dashed;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button2 {background-color: #008CBA;} /* Blue */
 
     </style>
 </head>
+<body>
+<body style="background-color:powderblue;">
 
+<h1>Querie 10</h1>
+<button onclick="window.location.assign('/')"; class="button button2">Home Page</button>
 
+<h2>Movies that are playing AND the auditoriums there playing in:</h2>
+<table style="color:black"; border="2">
+    <th style="color: ghostwhite; background-color:black;">MOVIES_ID</th>
+    <th style="color: ghostwhite; background-color:black;">AUDITORIUM_ID</th>
 
+    <% for(var i=0; result.length > i; i++) { %>
+    <tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_ID %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].AUDITORIUM_ID %></td>
+    </tr>
+    <% } %>
+</table>
 
+<h2>
+    Query using DISTINCT:
+</h2>
+<td></td>
+SELECT DISTINCT MOVIE_ID, AUDITORIUM_ID <br>
+FROM movie_auditorium <br>
+ORDER BY MOVIE_ID;
+</p>
+
+<h2>Description:
+</h2>
 <p>
-
-    my sql commands
+    This query retrieves all movie IDs of movies that are playing in an auditoriums<br>
+    You can see all of the movies currently playing and the specific auditoriums IDs that movie is playing in.
+    <br><br>(Example: There can be movies in the movie
+    table that are not playing in an auditorium yet)<br>
+    (Example: One movie can play in different auditoriums, *Movie ID 1 plays in auditoriums 4 and 12)
 </p>
 
 
 
-
+</body>
 </html>

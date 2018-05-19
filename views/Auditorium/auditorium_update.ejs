@@ -15,22 +15,33 @@
            value="<%= auditorium.AUDITORIUM_ID %>"
     />
 
-    AUDITORIUM CAPACITY: <input name ="CAPACITY" type="text" /><br/>
-<br>
-    FK CINEMA_ID: <br>
-    <select id="CINEMA_ID" name="CINEMA_ID">
-        <%for(var i = 0; cinema.length > i; i++) { %>
-        <option value="<%= cinema[i].CINEMA_ID %>"> <%= cinema[i].CINEMA_NAME %> </option>
-        <% } %>
+    AUDITORIUM CAPACITY: <input name ="CAPACITY" type="text" value="<%= auditorium.CAPACITY%>" /><br/>
+
+
+    <th style="color: powderblue; background-color:black;">Movie Name:</th>
+    <br>
+    <% for (var i = 0; i < movie.length; i++) {
+        var checked = "";
+        if (movie[i].MOVIE_ID == auditorium.MOVIE_ID) {
+            checked = "checked"; } %>
+    <input type = "radio" id="MOVIE_ID" name="MOVIE_ID" <%= checked %> value="<%= movie[i].MOVIE_ID %>"> <%= movie[i].MOVIE_NAME %>
+    <% } %>
+    </select>
+    <br/>
+
+    <br>
+    <th style="color: powderblue; background-color:black;">Cinema Name:</th>
+    <br>
+    <% for (var i = 0; i < cinema.length; i++) {
+        var checked = "";
+        if (cinema[i].CINEMA_ID == auditorium.CINEMA_ID) {
+            checked = "checked";  } %>
+    <br />
+    <input type="radio" id="CINEMA_ID" name="CINEMA_ID" <%= checked %> value="<%= cinema[i].CINEMA_ID %>"> <%= cinema[i].CINEMA_NAME %>
+    <% } %>
     </select>
     <br>
-<br>
-    FK MOVIE_ID: <br> <select id="MOVIE_ID" name="MOVIE_ID">
-        <%for(var i = 0; movie.length > i; i++) { %>
-        <option value="<%= movie[i].MOVIE_ID %>"> <%= movie[i].MOVIE_NAME %> </option>
-        <% } %>
-    </select>
-
+    <br/>
 
     <br/>
 

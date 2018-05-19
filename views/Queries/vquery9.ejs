@@ -3,19 +3,72 @@
 <head>
     <title>Querie 9</title>
     <style>
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: medium;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: dashed;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button2 {background-color: #008CBA;} /* Blue */
 
     </style>
 </head>
+<body>
+<body style="background-color:powderblue;">
 
+<h1>Querie 9</h1>
+<button onclick="window.location.assign('/')"; class="button button2">Home Page</button>
 
+<h2>Cinemas and there movies/auditoriums</h2>
+<table style="color:black"; border="2">
+    <th style="color: ghostwhite; background-color:black;">CINEMA_ID</th>
+    <th style="color: ghostwhite; background-color:black;">MOVIES_ID</th>
+    <th style="color: ghostwhite; background-color:black;">AUDITORIUM_ID</th>
 
+    <% for(var i=0; result.length > i; i++) { %>
+    <tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].CINEMA_ID %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_ID %></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].AUDITORIUM_ID %></td>
 
+    </tr>
+    <% } %>
+</table>
+
+<h2>
+    Query using UNION:
+</h2>
+<td></td>
+SELECT CINEMA_ID, MOVIE_ID, AUDITORIUM_ID<br>
+FROM auditorium<br>
+UNION (<br>
+SELECT CINEMA_ID, MOVIE_ID, AUDITORIUM_ID<br>
+FROM auditorium)<br>
+order by CINEMA_ID;
+</p>
+
+<h2>Description:
+</h2>
 <p>
-
-    my sql commands
+    This query retrieves Movies and auditoriums a particular cinema has to offer.<br>
+    <br>(Example: Cinema 1(RP Reading Cinema) has Movie 3(Deadpool) playing in auditorium 6)
+    <br> (Example: RP Reading Cinema also has Movie 1(Ghostbusters) playing in auditoriums 12 and 4)
 </p>
 
 
 
-
+</body>
 </html>

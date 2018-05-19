@@ -3,28 +3,68 @@
 <head>
     <title>Querie 1</title>
     <style>
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: medium;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: dashed;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button2 {background-color: #008CBA;} /* Blue */
 
     </style>
+
 </head>
+<body>
+<body style="background-color:powderblue;">
 
-<% for(var i=0; movie.length > i; i++) { %>
-<tr>
-    <td style="color: ghostwhite; background-color:black;"> <%= result[i].columns %></td>
-    <tr/>
+<h1>Querie 1</h1> <br>
+<button onclick="window.location.assign('/')"; class="button button2">Home Page</button>
 
-<tr>
-    <td style="color: ghostwhite; background-color:black;"> <%= result[i].columns %></td>
-<tr/>
+<h2>Movies that have had a ticket bought for them:</h2>
+<table style="color:black"; border="2">
+    <th style="color: ghostwhite; background-color:black;">MOVIE_ID</th>
+    <th style="color: ghostwhite; background-color:black;">MOVIE_NAME</th>
+    <th style="color: ghostwhite; background-color:black;">RATING</th>
 
-<tr>
-    <td style="color: ghostwhite; background-color:black;"> <%= result[i].columns %></td>
-<tr/>
-<p>
 
-    my sql commands
+    <% for(var i=0; result.length > i; i++) { %>
+    <tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_ID%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_NAME%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].RATING%></td>
+
+    </tr>
+
+    <% } %>
+</table>
+<br>
+<h2>
+    A query using a correlated subquery</h2>
+
+<td></td>
+SELECT MOVIE_ID, MOVIE_NAME, RATING <br>
+from movie<br>
+where MOVIE_ID IN (SELECT MOVIE_ID FROM ticket_sales);
 </p>
 
+<h2>Description:
+</h2>
+<p>
+This query returns all movies that have had a ticket bought for them.
 
-
-
+</p>
+</body>
 </html>

@@ -3,19 +3,81 @@
 <head>
     <title>Querie 5</title>
     <style>
+        h1 {
+            text-shadow: 2px 2px white;
+        }
+        h2 {
+            font-weight: bold;
+            font-size: large;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: dashed;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button2 {background-color: #008CBA;} /* Blue */
 
     </style>
+
 </head>
+<body>
+<body style="background-color:powderblue;">
+
+<h1>Querie 5</h1> <br>
+<button onclick="window.location.assign('/')"; class="button button2">Home Page</button>
+<h2>Auditoriums and there movies with a capacity less than the average capacity:</h2>
+
+<table style="color:black"; border="2">
+    <th style="color: ghostwhite; background-color:black;">AUDITORIUM_ID</th>
+    <th style="color: ghostwhite; background-color:black;">CAPACITY</th>
+    <th style="color: ghostwhite; background-color:black;">MOVIE_ID</th>
+    <th style="color: ghostwhite; background-color:black;">MOVIE_NAME</th>
+    <th style="color: ghostwhite; background-color:black;">CINEMA_ID</th>
+    <th style="color: ghostwhite; background-color:black;">CINEMA_NAME</th>
 
 
+    <% for(var i=0; result.length > i; i++) { %>
+    <tr>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].AUDITORIUM_ID%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].CAPACITY%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_ID%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].MOVIE_NAME%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].CINEMA_ID%></td>
+        <td style="color: ghostwhite; background-color:black;"> <%= result[i].CINEMA_NAME%></td>
 
+    </tr>
 
-<p>
+    <% } %>
+</table>
+<br>
+<h2>
+    A query that compares a value in the outer query to a value returned by the inner query:
 
-    my sql commands
+</h2>
+
+<td></td>
+SELECT auditorium_id, CAPACITY, movie.MOVIE_ID, movie.MOVIE_NAME, cinema.CINEMA_ID, cinema.CINEMA_NAME<br>
+from auditorium<br>
+inner join cinema on auditorium.CINEMA_ID = cinema.CINEMA_ID <br>
+inner join movie on auditorium.MOVIE_ID = movie.MOVIE_ID <br>
+Where CAPACITY < (Select avg(auditorium.capacity) as avg from auditorium) <br>
+order by AUDITORIUM_ID;
 </p>
 
+<h2>Description:
+</h2>
+<p>
+   This query will retrieve info on screenings that have a auditorium capacity that is less than the average capacity.
+    <br>It will display the specific auditorium and its capacity, the movie/id its playing and finally the name and id of the cinema.
 
 
-
+</p>
+</body>
 </html>

@@ -24,19 +24,29 @@ router.get('/add', function(req, res) {
             res.send(err);
         }
         else {
-            movie_dal.getAll(function(err, movie) {
+            movie_dal.getAll(function (err, movie) {
                 if (err) {
                     res.send(err)
                 }
                 else {
-                    res.render('auditorium/auditorium_add', {movie: movie, cinema: cinema});
+                    auditorium_dal.getAll(function (err, auditorium) {
+                        if (err) {
+                            res.send(err)
+                        }
+                        else {
+                            res.render('auditorium/auditorium_add', {
+                                movie: movie, cinema: cinema,
+                                auditorium: auditorium
+                            });
+
+                        }
+                    })
 
                 }
-        })
 
+            })
         }
-
-        })
+    })
 
 });
 
@@ -56,23 +66,23 @@ router.get('/insert', function(req, res) {
 });
 
 router.get('/edit', function(req, res) {
-    cinema_dal.getinfo(req.query.CINEMA_ID, function (err, cinema) {
+    cinema_dal.getAll(function (err, cinema) {
         if (err) {
             res.send(err);
         }
         else {
-            movie_dal.getinfo(req.query.MOVIE_ID, function (err, movie) {
+            movie_dal.getAll(function (err, movie) {
                 if (err) {
                     res.send(err);
                 }
                 else {
-                    auditorium_dal.getinfo(req.query.AUDITORIUM_ID, function (err, result) {
+                    auditorium_dal.getinfo(req.query.AUDITORIUM_ID, function (err, auditorium) {
                         if (err) {
                             res.send(err);
                         }
                         else {
                             res.render('auditorium/auditorium_update',
-                                {cinema: cinema[0], movie: movie[0], auditorium: result[0][0]})
+                                {cinema: cinema, movie: movie, auditorium: auditorium[0][0]})
                         }
                     })
 

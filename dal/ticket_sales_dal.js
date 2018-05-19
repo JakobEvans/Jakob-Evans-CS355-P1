@@ -14,8 +14,8 @@ exports.getAll = function(callback) {
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE ticket_sales SET PRICE = ?, MOVIE_ID = ?, AUDITORIUM_ID = ? WHERE TICKET_NUM = ?';
-    var queryData = [params.PRICE, params.MOVIE_ID, params.AUDITORIUM_ID, params.TICKET_NUM];
+    var query = 'UPDATE ticket_sales SET PRICE = ?, MOVIE_ID = ?, CINEMA_ID = ?, AUDITORIUM_ID = ? WHERE TICKET_NUM = ?';
+    var queryData = [params.PRICE, params.MOVIE_ID, params.CINEMA_ID, params.AUDITORIUM_ID, params.TICKET_NUM];
     connection.query(query, queryData, function(err, result) {
 
         callback(err,result);

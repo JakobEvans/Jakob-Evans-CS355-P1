@@ -8,12 +8,32 @@
         }
         h2 {
             font-weight: bold;
-            font-size: large;
+            font-size: medium;
         }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: dashed;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .button2 {background-color: #008CBA;} /* Blue */
+
     </style>
 
 </head>
+<body>
+<body style="background-color:powderblue;">
+
 <h1>Querie 4</h1> <br>
+<button onclick="window.location.assign('/')"; class="button button2">Home Page</button>
+
+<h2>Movies that are NOT playing in any auditoriums:</h2>
 <table style="color:black"; border="2">
     <th style="color: ghostwhite; background-color:black;">MOVIE_NAME</th>
 
@@ -42,8 +62,8 @@ WHERE movie.MOVIE_ID = movie_auditorium.MOVIE_ID);
 </h2>
 <p>
     This query will return movies that ARE NOT playing in any auditoriums.
+</p>
 
 
-
-
+</body>
 </html>

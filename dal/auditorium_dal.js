@@ -14,7 +14,7 @@ exports.getAll = function(callback) {
 };
 
 var auditoriumMovieInsert = function(AUDITORIUM_ID, movieIdArray, callback){
-    var query = 'INSERT INTO company_address (AUDITORIUM_ID, MOVIE_ID) VALUES ?';
+    var query = 'INSERT INTO movie_auditorium (AUDITORIUM_ID, MOVIE_ID) VALUES ?';
     //to bulk insert records
     var auditoriumMovieData = [];
     if (movieIdArray.constructor === Array) {
@@ -32,7 +32,7 @@ var auditoriumMovieInsert = function(AUDITORIUM_ID, movieIdArray, callback){
     });
 };
 
-var auditoriumMovieUpdate = function(auditorium_id, movieIdArray, callback){
+var auditoriumMovieUpdate = function(AUDITORIUM_ID, movieIdArray, callback){
     //first need to remove all entries, then re insert new ones
     var query = 'CALL auditorium_movie_delete(?)';
     connection.query(query, AUDITORIUM_ID, function(err, result) {
@@ -47,7 +47,7 @@ var auditoriumMovieUpdate = function(auditorium_id, movieIdArray, callback){
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE auditorium SET CAPACITY = ?, CINEMA_ID = ?, MOVIE_ID = ? WHERE AUDITORIUM_ID = ?';
+    var query = 'UPDATE auditorium SET CAPACITY = ?, MOVIE_ID = ?, CINEMA_ID = ? WHERE AUDITORIUM_ID = ?';
     var queryData = [params.CAPACITY, params.CINEMA_ID, params.MOVIE_ID, params.AUDITORIUM_ID];
     connection.query(query, queryData, function(err, result) {
         auditoriumMovieUpdate(params.AUDITORIUM_ID, params.MOVIE_ID, function(err, result) {

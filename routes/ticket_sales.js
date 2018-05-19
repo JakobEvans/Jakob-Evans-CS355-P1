@@ -82,7 +82,7 @@ router.get('/edit', function(req, res) {
                             res.send(err)
                         }
                         else {
-                            ticket_sales_dal.getAll(function (err, ticket_sales) {
+                            ticket_sales_dal.getinfo(req.query.TICKET_NUM, function(err, ticket_sales) {
                                 if (err) {
                                     res.send(err);
                                 }
@@ -91,10 +91,10 @@ router.get('/edit', function(req, res) {
                                         cinema: cinema,
                                         movie: movie,
                                         auditorium: auditorium,
-                                        ticket_sales: ticket_sales[0]
+                                        ticket_sales: ticket_sales[0][0]
                                     });
                                 }
-                            })
+                            });
                         }
                     })
                 }
@@ -102,7 +102,7 @@ router.get('/edit', function(req, res) {
         }
     })
 });
-/* THIS WAS LAST CLOSEST
+/*
 router.get('/edit', function(req, res) {
     movie_dal.getinfo(req.query.MOVIE_ID,function (err, movie) {
         if (err) {
@@ -125,9 +125,9 @@ router.get('/edit', function(req, res) {
                                 }
                                 else {
                                     res.render('ticket_sales/ticket_sales_update', {
-                                        movie: movie[1],
-                                        cinema: cinema[1],
-                                        auditorium: auditorium[1],
+                                        movie: movie[0],
+                                        cinema: cinema[0],
+                                        auditorium: auditorium[0],
                                         ticket_sales: ticket_sales[0][0]
 
                                     });
@@ -145,6 +145,7 @@ router.get('/edit', function(req, res) {
 
 });
 */
+
 
 /*
 router.get('/edit', function(req, res){
